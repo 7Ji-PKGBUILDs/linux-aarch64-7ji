@@ -8,9 +8,6 @@ pkgbase=linux-aarch64-7ji
 pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
-  "${pkgbase}-dtb-allwinner"
-  "${pkgbase}-dtb-amlogic"
-  "${pkgbase}-dtb-rockchip"
 )
 pkgver='6.4.3'
 pkgrel=1
