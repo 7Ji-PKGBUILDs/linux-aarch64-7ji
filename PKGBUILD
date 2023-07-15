@@ -69,7 +69,7 @@ build() {
 
 _dtb_common_pkg="${pkgbase}-dtb"
 
-package_linux-aarch64-flippy() {
+_package() {
   pkgdesc="The Linux Kernel and module - ${_desc}"
   depends=(
     "${_dtb_common_pkg}"
@@ -114,7 +114,7 @@ package_linux-aarch64-flippy() {
     install -Dm644 /dev/stdin "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
 }
 
-package_linux-aarch64-flippy-headers() {
+_package-headers() {
   pkgdesc="Header files and scripts for building modules for linux kernel - ${_desc}"
   
   # Mostly copied from alarm's linux-aarch64 and modified
@@ -193,8 +193,8 @@ package_linux-aarch64-flippy-headers() {
 
 _dtb_common_provides="${_dtb_common_pkg}=${pkgver}"
 
-package_linux-aarch64-flippy-dtb-allwinner() {
-  pkgdesc="DTB files for Allwinner SoCs for flippy's AArch64 kernel"
+_package-dtb-allwinner() {
+  pkgdesc="DTB files for Allwinner SoCs for 7Ji's AArch64 kernel"
   provides=(
     "${_dtb_common_provides}"
   )
@@ -203,8 +203,8 @@ package_linux-aarch64-flippy-dtb-allwinner() {
   cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/allwinner"
 }
 
-package_linux-aarch64-flippy-dtb-amlogic() {
-  pkgdesc="DTB files for Amlogic SoCs for flippy's AArch64 kernel"
+_package-dtb-amlogic() {
+  pkgdesc="DTB files for Amlogic SoCs for 7Ji's AArch64 kernel"
   provides=(
     "${_dtb_common_provides}"
   )
@@ -213,8 +213,8 @@ package_linux-aarch64-flippy-dtb-amlogic() {
   cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/amlogic"
 }
 
-package_linux-aarch64-flippy-dtb-rockchip() {
-  pkgdesc="DTB files for Rockchip SoCs for flippy's AArch64 kernel"
+_package-dtb-rockchip() {
+  pkgdesc="DTB files for Rockchip SoCs for 7Ji's AArch64 kernel"
   provides=(
     "${_dtb_common_provides}"
   )
@@ -222,3 +222,10 @@ package_linux-aarch64-flippy-dtb-rockchip() {
   install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
   cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/rockchip"
 }
+
+for _p in "${pkgname[@]}"; do
+  eval "package_$_p() {
+    $(declare -f "_package${_p#$pkgbase}")
+    _package${_p#$pkgbase}
+  }"
+done
