@@ -38,13 +38,9 @@ prepare() {
   cd "${_srcname}"
 
   echo "Patching kernel..."
-  local file_patch
-  for file_patch in "${source[@]:3}"; do 
-    patch -p1 < "../${file_patch}"
-  done
 
   echo "Setting version..."
-  scripts/setlocalversion --save-scmversion
+  scripts/setlocalversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
 
