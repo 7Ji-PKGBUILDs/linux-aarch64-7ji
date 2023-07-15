@@ -4,6 +4,7 @@ _desc="7Ji's AArch64-focused fork aiming to increase usability"
 _pkgver_main=6.4.3
 _pkgver_suffix=7Ji
 _pkgver_uname="${_pkgver_main}-${_pkgver_suffix}"
+_srcname=linux
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
