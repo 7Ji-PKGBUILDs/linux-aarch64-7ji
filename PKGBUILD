@@ -37,10 +37,7 @@ sha256sums=(
 prepare() {
   cd "${_srcname}"
 
-  echo "Patching kernel..."
-
   echo "Setting version..."
-  scripts/setlocalversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
 
