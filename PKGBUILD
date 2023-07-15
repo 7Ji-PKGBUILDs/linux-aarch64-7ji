@@ -1,10 +1,8 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
-_desc="7Ji's AArch64-focused fork aiming to increase usability"
-_pkgver_main=6.4.3
-_pkgver_suffix=7Ji
-_pkgver_uname="${_pkgver_main}-${_pkgver_suffix}"
-_srcname=linux
+_desc="7Ji's AArch64-Amlogic-focused minor fork"
+_7ji_commit='7cf8170c911c9359525e3de397bd5e1f9257dbcb'
+_srcname="linux-${_7ji_commit}"
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
@@ -14,7 +12,7 @@ pkgname=(
   "${pkgbase}-dtb-amlogic"
   "${pkgbase}-dtb-rockchip"
 )
-pkgver="${_pkgver_main}"
+pkgver='6.4.3'
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/7Ji/linux"
@@ -24,13 +22,13 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 source=(
-  "git://git.lan/linux.git#branch=amlogic"
+  "${_srcname}.tar.gz::${url}/archive/${_7ji_commit}.tar.gz"
   'config'
   'linux.preset'
 )
 sha256sums=(
-  'SKIP'
-  'SKIP'
+  '4f26cc58a2c3d5934c6100597830ecba221cfd14b22f9d4d9dbd87ab95e03f2e'
+  'd153dcd613fb2645b68324436c5e7f525eea6664d9b268d3b530f455184c6d60'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
@@ -60,12 +58,9 @@ build() {
   make ${MAKEFLAGS} DTC_FLAGS="-@" Image modules dtbs
 }
 
-_dtb_common_pkg="${pkgbase}-dtb"
-
 _package() {
   pkgdesc="The Linux Kernel and module - ${_desc}"
   depends=(
-    "${_dtb_common_pkg}"
     'coreutils'
     'initramfs'
     'kmod'
@@ -75,9 +70,6 @@ _package() {
     'linux-firmware: firmware images needed for some devices'
     'linux-firmware-amlogic-ophub: complete firmware set for devices with Amlogic SoCs'
     'wireless-regdb: to set the correct wireless channels of your country'
-    "${pkgbase}-dtb-allwinner: dtbs for Allwinner SoCs"
-    "${pkgbase}-dtb-amlogic: dtbs for Amlogic SoCs"
-    "${pkgbase}-dtb-rockchip: dtbs for Rockchip SoCs"
   )
   backup=(
     "etc/mkinitcpio.d/${pkgbase}.preset"
@@ -105,6 +97,11 @@ _package() {
   # install mkinitcpio preset file
   sed "s|%PKGBASE%|${pkgbase}|g" ../linux.preset |
     install -Dm644 /dev/stdin "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
+
+  # Install DTB
+  echo 'Installing DTBs for Amlogic SoCs...'
+  install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
+  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/amlogic"
 }
 
 _package-headers() {
@@ -182,38 +179,6 @@ _package-headers() {
   echo "Adding symlink..."
   mkdir -p "${pkgdir}/usr/src"
   ln -sr "${_builddir}" "$pkgdir/usr/src/$pkgbase"
-}
-
-_dtb_common_provides="${_dtb_common_pkg}=${pkgver}"
-
-_package-dtb-allwinner() {
-  pkgdesc="DTB files for Allwinner SoCs for 7Ji's AArch64 kernel"
-  provides=(
-    "${_dtb_common_provides}"
-  )
-  echo 'Installing DTBs for Allwinner SoCs...'
-  install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
-  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/allwinner"
-}
-
-_package-dtb-amlogic() {
-  pkgdesc="DTB files for Amlogic SoCs for 7Ji's AArch64 kernel"
-  provides=(
-    "${_dtb_common_provides}"
-  )
-  echo 'Installing DTBs for Amlogic SoCs...'
-  install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
-  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/amlogic"
-}
-
-_package-dtb-rockchip() {
-  pkgdesc="DTB files for Rockchip SoCs for 7Ji's AArch64 kernel"
-  provides=(
-    "${_dtb_common_provides}"
-  )
-  echo 'Installing DTBs for Rockchip SoCs...'
-  install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
-  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/rockchip"
 }
 
 for _p in "${pkgname[@]}"; do
