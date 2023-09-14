@@ -1,7 +1,7 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
 _desc="7Ji's AArch64-Amlogic-focused minor fork"
-_7ji_commit='b79c21220ca69aaf3cf5bfc6dbbfbfc2dd5dec46'
+_7ji_commit='c6260e72b0feb47a1f961e5e0c2054b6300f1cf7'
 _srcname="linux-${_7ji_commit}"
 
 pkgbase=linux-aarch64-7ji
@@ -9,7 +9,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.4.14'
+pkgver='6.5.3'
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/7Ji/linux"
@@ -24,8 +24,8 @@ source=(
   'linux.preset'
 )
 sha256sums=(
-  '64598fea9452fe454098c996a5b040d6c0c62ac7d23cf12924cf8a0b6b03e889'
-  '7cf9ec30559409c666175d2a827471308d2dfd85aec4abb336a949328d87868e'
+  '18c161bb72e83cb1a7dfdff5fc09d32b66a9826685e3b31aed2fad1ede7f2ebc'
+  'bc15f7cc43c035cab70fce525eee843847f2073773bda9fb7261518deaeb55b8'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
