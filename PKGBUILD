@@ -1,15 +1,14 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
 _desc="7Ji's AArch64-Amlogic-focused minor fork"
-_7ji_commit='3c350274a512133b22348ba05623a76044cab909'
-_srcname="linux-${_7ji_commit}"
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.5.8'
+pkgver='6.6.1'
+_tag="amlogic-v${pkgver}"
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/7Ji/linux"
@@ -18,14 +17,15 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
   'kmod' 'bc' 'dtc' 'uboot-tools'
 )
 options=(!strip)
+_srcname="linux-${_tag}"
 source=(
-  "${_srcname}.tar.gz::${url}/archive/${_7ji_commit}.tar.gz"
+  "${_srcname}.tar.gz::${url}/archive/refs/tags/${_tag}.tar.gz"
   'config'
   'linux.preset'
 )
 sha256sums=(
-  'ba8a44c37022b68001c6755de4cf7cc4ac3c582513eb4206d4bc09c20f4cbe0e'
-  'd8c5138947417fa5b6d2ebcad63596a115bdd4c3a34b30aae70db3517e9e713c'
+  '52b4beb32237ae42664720bfecac53e1e99a68d8567d5a3d14d5051f2f3981e6'
+  '55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
