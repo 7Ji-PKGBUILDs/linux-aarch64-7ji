@@ -1,36 +1,42 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
-_desc="7Ji's AArch64-Amlogic-focused minor fork"
+_desc="with 7Ji's AArch64-Amlogic-focused patches"
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.6.1'
-_tag="amlogic-v${pkgver}"
+pkgver='6.6.2'
 pkgrel=1
 arch=('aarch64')
-url="https://github.com/7Ji/linux"
+url="https://kernel.org"
 license=('GPL2')
 makedepends=( # Since we don't build the doc, most of the makedeps for other linux packages are not needed here
   'kmod' 'bc' 'dtc' 'uboot-tools'
 )
 options=(!strip)
-_srcname="linux-${_tag}"
+_srcname="linux-${pkgver}"
+_sha256_patch='e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc'
+_name_patch='0001-rebase-local-changes-to-v6.5.2.patch.xz'
 source=(
-  "${_srcname}.tar.gz::${url}/archive/refs/tags/${_tag}.tar.gz"
+  "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
+  "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
   'linux.preset'
 )
 sha256sums=(
-  '52b4beb32237ae42664720bfecac53e1e99a68d8567d5a3d14d5051f2f3981e6'
+  '73d4f6ad8dd6ac2a41ed52c2928898b7c3f2519ed5dbdb11920209a36999b77e'
+  "${_sha256_patch}"
   '55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
 prepare() {
   cd "${_srcname}"
+
+  echo "Patching kernel..."
+  xz -cdk ../"${_name_patch}" | patch -p1
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
@@ -44,7 +50,7 @@ build() {
   cd "${_srcname}"
 
   # get kernel version, which will be used later for modules
-  make prepare
+  make olddefconfig prepare
   make -s kernelrelease > version
 
   # Host LDFLAGS or other LDFLAGS set by makepkg/user is not helpful for building kernel: it should links nothing outside of itself

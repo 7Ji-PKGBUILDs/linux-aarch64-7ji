@@ -1,0 +1,33 @@
+pkgbase = linux-aarch64-7ji
+	pkgver = 6.6.2
+	pkgrel = 1
+	url = https://kernel.org
+	arch = aarch64
+	license = GPL2
+	makedepends = kmod
+	makedepends = bc
+	makedepends = dtc
+	makedepends = uboot-tools
+	options = !strip
+	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.2.tar.xz
+	source = https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc-0001-rebase-local-changes-to-v6.5.2.patch.xz
+	source = config
+	source = linux.preset
+	sha256sums = 73d4f6ad8dd6ac2a41ed52c2928898b7c3f2519ed5dbdb11920209a36999b77e
+	sha256sums = e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc
+	sha256sums = 55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58
+	sha256sums = bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3
+
+pkgname = linux-aarch64-7ji
+	pkgdesc = The Linux Kernel and module - with 7Ji's AArch64-Amlogic-focused patches
+	depends = coreutils
+	depends = initramfs
+	depends = kmod
+	optdepends = uboot-legacy-initrd-hooks: to generate uboot legacy initrd images
+	optdepends = linux-firmware: firmware images needed for some devices
+	optdepends = linux-firmware-amlogic-ophub: complete firmware set for devices with Amlogic SoCs
+	optdepends = wireless-regdb: to set the correct wireless channels of your country
+	backup = etc/mkinitcpio.d/linux-aarch64-7ji.preset
+
+pkgname = linux-aarch64-7ji-headers
+	pkgdesc = Header files and scripts for building modules for linux kernel - with 7Ji's AArch64-Amlogic-focused patches
