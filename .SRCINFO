@@ -1,6 +1,6 @@
 pkgbase = linux-aarch64-7ji
 	pkgver = 6.6.8
-	pkgrel = 1
+	pkgrel = 2
 	url = https://kernel.org
 	arch = aarch64
 	license = GPL2
@@ -11,10 +11,12 @@ pkgbase = linux-aarch64-7ji
 	options = !strip
 	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.8.tar.xz
 	source = 0001-rebase-local-changes-to-v6.5.2.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc-0001-rebase-local-changes-to-v6.5.2.patch.xz
+	source = 0002-block-fix-length-of-strscpy.patch
 	source = config
 	source = linux.preset
 	sha256sums = 5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416
 	sha256sums = e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc
+	sha256sums = 49284cb287a3788fa676530ea728ee5c4de7ede4cc5bfced69183d46399a5daf
 	sha256sums = 55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58
 	sha256sums = bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3
 

@@ -8,7 +8,7 @@ pkgname=(
   "${pkgbase}-headers"
 )
 pkgver='6.6.8'
-pkgrel=1
+pkgrel=2
 arch=('aarch64')
 url="https://kernel.org"
 license=('GPL2')
@@ -22,12 +22,14 @@ _name_patch='0001-rebase-local-changes-to-v6.5.2.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
+  '0002-block-fix-length-of-strscpy.patch'
   'config'
   'linux.preset'
 )
 sha256sums=(
   '5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416'
   "${_sha256_patch}"
+  '49284cb287a3788fa676530ea728ee5c4de7ede4cc5bfced69183d46399a5daf'
   '55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
@@ -35,8 +37,11 @@ sha256sums=(
 prepare() {
   cd "${_srcname}"
 
-  echo "Patching kernel..."
+  echo "Patching kernel (stable patchset)..."
   xz -cdk ../"${_name_patch}" | patch -p1
+
+  echo "Patching kernel (temporary patches)..."
+  patch -p1 < ../0002-block-fix-length-of-strscpy.patch
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
