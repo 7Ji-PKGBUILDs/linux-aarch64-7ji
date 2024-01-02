@@ -1,7 +1,7 @@
-From 628d87ee19a8c4f8481952afb8c347e6c3aa525f Mon Sep 17 00:00:00 2001
+From 86df0336e14847a193aa981df4e5b498925ae1bb Mon Sep 17 00:00:00 2001
 From: Guoxin Pu <pugokushin@gmail.com>
 Date: Tue, 2 Jan 2024 01:02:33 +0800
-Subject: [PATCH] block: fix length of strscpy()
+Subject: [PATCH v2] block: fix length of strscpy()
 
 In commit 146afeb235ccec10c17ad8ea26327c0c79dbd968 ("block: use strscpy()
 to instead of strncpy()") , the length that should now represent the length
@@ -14,14 +14,15 @@ device relying on such partitions to boot, on stable releases since 6.6
 
 This patch fixes the lengths to contain the terminating NULL.
 
+Fixes: 146afeb235cc ("block: use strscpy() to instead of strncpy()")
 Cc: stable@vger.kernel.org # 6.6.x
 Signed-off-by: Guoxin Pu <pugokushin@gmail.com>
 ---
- block/partitions/cmdline.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ block/partitions/cmdline.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
 
 diff --git a/block/partitions/cmdline.c b/block/partitions/cmdline.c
-index c03bc105e575..c2aac5f4ab82 100644
+index c03bc105e575..4657704c3e37 100644
 --- a/block/partitions/cmdline.c
 +++ b/block/partitions/cmdline.c
 @@ -79,8 +79,8 @@ static int parse_subpart(struct cmdline_subpart **subpart, char *partdef)
@@ -55,15 +56,25 @@ index c03bc105e575..c2aac5f4ab82 100644
  
  		strscpy(buf, bdevdef, length);
  
-@@ -262,7 +262,7 @@ static int add_part(int slot, struct cmdline_subpart *subpart,
+@@ -250,7 +250,6 @@ static struct cmdline_parts *bdev_parts;
+ static int add_part(int slot, struct cmdline_subpart *subpart,
+ 		struct parsed_partitions *state)
+ {
+-	int label_min;
+ 	struct partition_meta_info *info;
+ 	char tmp[sizeof(info->volname) + 4];
+ 
+@@ -262,9 +261,7 @@ static int add_part(int slot, struct cmdline_subpart *subpart,
  
  	info = &state->parts[slot].info;
  
 -	label_min = min_t(int, sizeof(info->volname) - 1,
-+	label_min = min_t(int, sizeof(info->volname),
- 			  sizeof(subpart->name));
- 	strscpy(info->volname, subpart->name, label_min);
+-			  sizeof(subpart->name));
+-	strscpy(info->volname, subpart->name, label_min);
++	strscpy(info->volname, subpart->name, sizeof(info->volname));
  
+ 	snprintf(tmp, sizeof(tmp), "(%s)", info->volname);
+ 	strlcat(state->pp_buf, tmp, PAGE_SIZE);
 -- 
 2.43.0
 

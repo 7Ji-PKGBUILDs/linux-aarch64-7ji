@@ -8,7 +8,7 @@ pkgname=(
   "${pkgbase}-headers"
 )
 pkgver='6.6.8'
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 url="https://kernel.org"
 license=('GPL2')
@@ -29,7 +29,7 @@ source=(
 sha256sums=(
   '5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416'
   "${_sha256_patch}"
-  '49284cb287a3788fa676530ea728ee5c4de7ede4cc5bfced69183d46399a5daf'
+  '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
   '55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
