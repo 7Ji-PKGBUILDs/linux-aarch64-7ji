@@ -1,13 +1,13 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
-_desc="with 7Ji's AArch64-Amlogic-focused patches"
+_desc="almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms"
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.6.10'
+pkgver='6.7'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -23,14 +23,16 @@ source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   '0002-block-fix-length-of-strscpy.patch'
+  '0003-openvfd-gpio_device_find.patch'
   'config'
   'linux.preset'
 )
 sha256sums=(
-  '9ee627e4c109aec7fca3eda5898e81d201af2c7eb2f7d9d7d94c1f0e1205546c'
+  'ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069'
   "${_sha256_patch}"
   '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
-  '55b8b3e11f5780c6d2f1d2b1c6d05f6d44d2ad110fe2d5d12662853b299fbc58'
+  '3ca2e498dc6191dfd5f86ddd3dda07e8842f736d09fe81212fe02cf684ad1507'
+  'd15943f28500a9aefe2cae132da9504823edd004d7b62f3c53d1ede9d2139159'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
@@ -42,6 +44,7 @@ prepare() {
 
   echo "Patching kernel (temporary patches)..."
   patch -p1 < ../0002-block-fix-length-of-strscpy.patch
+  patch -p1 < ../0003-openvfd-gpio_device_find.patch
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
@@ -99,7 +102,7 @@ _package() {
   # Install kernel image (this is technically not vmlinuz, but I name it this way to utilize mkinitcpio's existing hooks)
   install -Dm644 arch/arm64/boot/Image "${_dir_module}/vmlinuz"
 
-  # Remove hbuild and source links, which points to folders used when building (i.e. dead links)
+  # Remove build and source links, which points to folders used when building (i.e. dead links)
   rm -f "${_dir_module}/"{build,source}
 
   # install mkinitcpio preset file
@@ -107,9 +110,9 @@ _package() {
     install -Dm644 /dev/stdin "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
 
   # Install DTB
-  echo 'Installing DTBs for Amlogic SoCs...'
+  echo 'Installing DTBs for Amlogic and Rockchip SoCs...'
   install -d -m 755 "${pkgdir}/boot/dtbs/${pkgbase}"
-  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/amlogic"
+  cp -t "${pkgdir}/boot/dtbs/${pkgbase}" -a "${srcdir}/dtbs/"{amlogic,rockchip}
 }
 
 _package-headers() {
