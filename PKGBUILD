@@ -17,13 +17,12 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
-_sha256_patch='e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc'
-_name_patch='0001-rebase-local-changes-to-v6.5.2.patch.xz'
+_sha256_patch='80eeee2829613a146b6bff8f3225d94c025662d29ac5e39d24a0621b43834fdc'
+_name_patch='0001-rebase-local-changes-to-v6.7.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   '0002-block-fix-length-of-strscpy.patch'
-  '0003-openvfd-gpio_device_find.patch'
   'config'
   'linux.preset'
 )
@@ -31,7 +30,6 @@ sha256sums=(
   'ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069'
   "${_sha256_patch}"
   '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
-  '3ca2e498dc6191dfd5f86ddd3dda07e8842f736d09fe81212fe02cf684ad1507'
   'a521f97ef7910e809e95430e8352fa2d6af97a1213dfe0826f959cdf9def8b33'
   'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
@@ -44,7 +42,6 @@ prepare() {
 
   echo "Patching kernel (temporary patches)..."
   patch -p1 < ../0002-block-fix-length-of-strscpy.patch
-  patch -p1 < ../0003-openvfd-gpio_device_find.patch
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
