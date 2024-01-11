@@ -1,6 +1,6 @@
 pkgbase = linux-aarch64-7ji
 	pkgver = 6.7
-	pkgrel = 1
+	pkgrel = 2
 	url = https://kernel.org
 	arch = aarch64
 	license = GPL2
@@ -19,7 +19,7 @@ pkgbase = linux-aarch64-7ji
 	sha256sums = e138ce7b90cd22226e889f88dfd4973d851f7a8f05f667e28cbd4883ba4961dc
 	sha256sums = 9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205
 	sha256sums = 3ca2e498dc6191dfd5f86ddd3dda07e8842f736d09fe81212fe02cf684ad1507
-	sha256sums = 81968eff57d79907ffe8e6604c69030319960c78b5cc50fd4f7a2129b1c25d49
+	sha256sums = a521f97ef7910e809e95430e8352fa2d6af97a1213dfe0826f959cdf9def8b33
 	sha256sums = bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3
 
 pkgname = linux-aarch64-7ji
