@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.7'
+pkgver='6.7.1'
 pkgrel=2
 arch=('aarch64')
 url="https://kernel.org"
@@ -27,7 +27,7 @@ source=(
   'linux.preset'
 )
 sha256sums=(
-  'ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069'
+  '1ecffa568e86a2202ba5533ad9034bc263a9aa14e189597a94f09b3854ad68c3'
   "${_sha256_patch}"
   '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
   'a521f97ef7910e809e95430e8352fa2d6af97a1213dfe0826f959cdf9def8b33'
