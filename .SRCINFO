@@ -1,5 +1,5 @@
 pkgbase = linux-aarch64-7ji
-	pkgver = 6.8.7
+	pkgver = 6.8.8
 	pkgrel = 1
 	url = https://kernel.org
 	arch = aarch64
@@ -9,16 +9,14 @@ pkgbase = linux-aarch64-7ji
 	makedepends = dtc
 	makedepends = uboot-tools
 	options = !strip
-	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.8.7.tar.xz
+	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.8.8.tar.xz
 	source = 0001-rebase-local-changes-to-v6.8.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-cc7f7a90c295ec810ffa3bd8154d261316a4b7379bde49441cb133ecf1b0bfe7-0001-rebase-local-changes-to-v6.8.patch.xz
 	source = 0002-block-fix-length-of-strscpy.patch
 	source = config
-	source = linux.preset
-	sha256sums = 291d1a1faf4e87b3b0ea9729080db887aafd1ff2fac1430ceca921e46bc22fae
+	sha256sums = 1c4cdcb9d560fad1fb95db2cb8afbedc922f9ead848371fe40363b13f9f631ba
 	sha256sums = cc7f7a90c295ec810ffa3bd8154d261316a4b7379bde49441cb133ecf1b0bfe7
 	sha256sums = 9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205
 	sha256sums = 3c4318b506c7ac883555c525469714df58c17e2a2f6217f2666f0e7d8d77afb9
-	sha256sums = bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3
 
 pkgname = linux-aarch64-7ji
 	pkgdesc = The Linux Kernel and module - almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms
@@ -29,7 +27,6 @@ pkgname = linux-aarch64-7ji
 	optdepends = linux-firmware: firmware images needed for some devices
 	optdepends = linux-firmware-amlogic-ophub: complete firmware set for devices with Amlogic SoCs
 	optdepends = wireless-regdb: to set the correct wireless channels of your country
-	backup = etc/mkinitcpio.d/linux-aarch64-7ji.preset
 
 pkgname = linux-aarch64-7ji-headers
 	pkgdesc = Header files and scripts for building modules for linux kernel - almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms

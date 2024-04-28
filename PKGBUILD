@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.8.7'
+pkgver='6.8.8'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -24,14 +24,12 @@ source=(
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   '0002-block-fix-length-of-strscpy.patch'
   'config'
-  'linux.preset'
 )
 sha256sums=(
-  '291d1a1faf4e87b3b0ea9729080db887aafd1ff2fac1430ceca921e46bc22fae'
+  '1c4cdcb9d560fad1fb95db2cb8afbedc922f9ead848371fe40363b13f9f631ba'
   "${_sha256_patch}"
   '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
   '3c4318b506c7ac883555c525469714df58c17e2a2f6217f2666f0e7d8d77afb9'
-  'bdcd6cbf19284b60fac6d6772f1e0ec2e2fe03ce7fe3d7d16844dd6d2b5711f3'
 )
 
 prepare() {
@@ -79,9 +77,6 @@ _package() {
     'linux-firmware-amlogic-ophub: complete firmware set for devices with Amlogic SoCs'
     'wireless-regdb: to set the correct wireless channels of your country'
   )
-  backup=(
-    "etc/mkinitcpio.d/${pkgbase}.preset"
-  )
 
   cd "${_srcname}"
 
@@ -101,10 +96,6 @@ _package() {
 
   # Remove build and source links, which points to folders used when building (i.e. dead links)
   rm -f "${_dir_module}/"{build,source}
-
-  # install mkinitcpio preset file
-  sed "s|%PKGBASE%|${pkgbase}|g" ../linux.preset |
-    install -Dm644 /dev/stdin "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
 
   # Install DTB
   echo 'Installing DTBs for Amlogic and Rockchip SoCs...'
