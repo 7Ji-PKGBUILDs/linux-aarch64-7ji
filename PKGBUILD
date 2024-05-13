@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.8.9'
+pkgver='6.9'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -17,8 +17,8 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
-_sha256_patch='cc7f7a90c295ec810ffa3bd8154d261316a4b7379bde49441cb133ecf1b0bfe7'
-_name_patch='0001-rebase-local-changes-to-v6.8.patch.xz'
+_sha256_patch='0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d'
+_name_patch='0001-rebase-local-changes-to-v6.9.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
@@ -26,7 +26,7 @@ source=(
   'config'
 )
 sha256sums=(
-  'f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
+  '24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
   "${_sha256_patch}"
   '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
   '3c4318b506c7ac883555c525469714df58c17e2a2f6217f2666f0e7d8d77afb9'
