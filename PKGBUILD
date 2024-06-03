@@ -22,13 +22,11 @@ _name_patch='0001-rebase-local-changes-to-v6.9.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
-  '0002-block-fix-length-of-strscpy.patch'
   'config'
 )
 sha256sums=(
   'c321c46401368774fc236f57095b205a5da57415f9a6008018902f9fd5eddfae'
   "${_sha256_patch}"
-  '9278761a71d16c48d47e7b4840eeabb31f0ac8645780b8e5d3f9f3e108a3c205'
   '3c4318b506c7ac883555c525469714df58c17e2a2f6217f2666f0e7d8d77afb9'
 )
 
@@ -37,9 +35,6 @@ prepare() {
 
   echo "Patching kernel (stable patchset)..."
   xz -cdk ../"${_name_patch}" | patch -p1
-
-  echo "Patching kernel (temporary patches)..."
-  patch -p1 < ../0002-block-fix-length-of-strscpy.patch
 
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
