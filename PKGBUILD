@@ -1,6 +1,6 @@
 # Maintainer: 7Ji <pugokughin@gmail.com>
 
-_desc="almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms"
+_desc="almost mainline but with 7Ji's patches, for Amlogic, Rockchip and virt"
 
 pkgbase=linux-aarch64-7ji
 pkgname=(
@@ -8,7 +8,7 @@ pkgname=(
   "${pkgbase}-headers"
 )
 pkgver='6.10'
-pkgrel=1
+pkgrel=2
 arch=('aarch64')
 url="https://kernel.org"
 license=('GPL2')
@@ -27,7 +27,7 @@ source=(
 sha256sums=(
   '774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226'
   "${_sha256_patch}"
-  'd01346501dbc3ea65ca45ef88c17f53f83e8ae0bd11d14a671d492635f998738'
+  'bed9b2e64bf8d0c58454ef86455615a70226f4f56b5a3076d2a4beec60b186ff'
 )
 
 prepare() {

@@ -1,6 +1,6 @@
 pkgbase = linux-aarch64-7ji
 	pkgver = 6.10
-	pkgrel = 1
+	pkgrel = 2
 	url = https://kernel.org
 	arch = aarch64
 	license = GPL2
@@ -14,10 +14,10 @@ pkgbase = linux-aarch64-7ji
 	source = config
 	sha256sums = 774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226
 	sha256sums = 0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d
-	sha256sums = d01346501dbc3ea65ca45ef88c17f53f83e8ae0bd11d14a671d492635f998738
+	sha256sums = bed9b2e64bf8d0c58454ef86455615a70226f4f56b5a3076d2a4beec60b186ff
 
 pkgname = linux-aarch64-7ji
-	pkgdesc = The Linux Kernel and module - almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms
+	pkgdesc = The Linux Kernel and module - almost mainline but with 7Ji's patches, for Amlogic, Rockchip and virt
 	depends = coreutils
 	depends = initramfs
 	depends = kmod
@@ -27,4 +27,4 @@ pkgname = linux-aarch64-7ji
 	optdepends = wireless-regdb: to set the correct wireless channels of your country
 
 pkgname = linux-aarch64-7ji-headers
-	pkgdesc = Header files and scripts for building modules for linux kernel - almost mainline but with 7Ji's patches, for Amlogic and Rockchip platforms
+	pkgdesc = Header files and scripts for building modules for linux kernel - almost mainline but with 7Ji's patches, for Amlogic, Rockchip and virt
