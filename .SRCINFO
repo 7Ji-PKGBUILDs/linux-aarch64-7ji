@@ -1,6 +1,6 @@
 pkgbase = linux-aarch64-7ji
-	pkgver = 6.10
-	pkgrel = 2
+	pkgver = 6.10.3
+	pkgrel = 1
 	url = https://kernel.org
 	arch = aarch64
 	license = GPL2
@@ -9,10 +9,10 @@ pkgbase = linux-aarch64-7ji
 	makedepends = dtc
 	makedepends = uboot-tools
 	options = !strip
-	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.tar.xz
+	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.10.3.tar.xz
 	source = 0001-rebase-local-changes-to-v6.9.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d-0001-rebase-local-changes-to-v6.9.patch.xz
 	source = config
-	sha256sums = 774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226
+	sha256sums = fa5f22fd67dd05812d39dca579320c493048e26c4a556048a12385e7ae6fc698
 	sha256sums = 0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d
 	sha256sums = bed9b2e64bf8d0c58454ef86455615a70226f4f56b5a3076d2a4beec60b186ff
 
