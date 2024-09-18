@@ -14,7 +14,7 @@ pkgbase = linux-aarch64-7ji
 	source = config
 	sha256sums = e687e735b5eb9efb6d67b42433c93fc9118106a995514f062652873b5e809bcd
 	sha256sums = 0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d
-	sha256sums = bed9b2e64bf8d0c58454ef86455615a70226f4f56b5a3076d2a4beec60b186ff
+	sha256sums = 623d4e82816f0a20e9cc8e1cc7a7b429cea3a9f57ea506f438d3ba12116637c1
 
 pkgname = linux-aarch64-7ji
 	pkgdesc = The Linux Kernel and module - almost mainline but with 7Ji's patches, for Amlogic, Rockchip and virt
