@@ -13,7 +13,7 @@ arch=('aarch64')
 url="https://kernel.org"
 license=('GPL2')
 makedepends=( # Since we don't build the doc, most of the makedeps for other linux packages are not needed here
-  'kmod' 'bc' 'dtc' 'uboot-tools'
+  'kmod' 'bc' 'dtc' 'uboot-tools' 'pahole'
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
@@ -100,6 +100,7 @@ _package() {
 
 _package-headers() {
   pkgdesc="Header files and scripts for building modules for linux kernel - ${_desc}"
+  depends=('pahole')
   
   # Mostly copied from alarm's linux-aarch64 and modified
   cd "${_srcname}"
