@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 6.10.10 Kernel Configuration
+# Linux/arm64 6.10.11 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 14.1.1 20240507"
 CONFIG_CC_IS_GCC=y
@@ -8619,7 +8619,7 @@ CONFIG_SECURITY_APPARMOR_PARANOID_LOAD=y
 # CONFIG_SECURITY_YAMA is not set
 # CONFIG_SECURITY_SAFESETID is not set
 # CONFIG_SECURITY_LOCKDOWN_LSM is not set
-# CONFIG_SECURITY_LANDLOCK is not set
+CONFIG_SECURITY_LANDLOCK=y
 CONFIG_INTEGRITY=y
 # CONFIG_INTEGRITY_SIGNATURE is not set
 CONFIG_INTEGRITY_AUDIT=y
@@ -8629,7 +8629,7 @@ CONFIG_INTEGRITY_AUDIT=y
 # CONFIG_DEFAULT_SECURITY_SELINUX is not set
 # CONFIG_DEFAULT_SECURITY_APPARMOR is not set
 CONFIG_DEFAULT_SECURITY_DAC=y
-CONFIG_LSM="yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor"
+CONFIG_LSM="landlock,yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor"
 
 #
 # Kernel hardening options
