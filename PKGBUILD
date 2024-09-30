@@ -17,8 +17,8 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
-_sha256_patch='0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d'
-_name_patch='0001-rebase-local-changes-to-v6.9.patch.xz'
+_sha256_patch='44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461'
+_name_patch='0001-rebase-local-changes-to-v6.11.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"

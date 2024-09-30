@@ -11,10 +11,10 @@ pkgbase = linux-aarch64-7ji
 	makedepends = pahole
 	options = !strip
 	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.tar.xz
-	source = 0001-rebase-local-changes-to-v6.9.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d-0001-rebase-local-changes-to-v6.9.patch.xz
+	source = 0001-rebase-local-changes-to-v6.11.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461-0001-rebase-local-changes-to-v6.11.patch.xz
 	source = config
 	sha256sums = 55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e
-	sha256sums = 0e1ad0c5f2812b819da5deb453b970ab62d4c1778928200989f4e50889387e1d
+	sha256sums = 44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461
 	sha256sums = 9176495130362f12d493e7e1e4c7d5ac3ef59f6c2bc70214a8cfb7942f33391d
 
 pkgname = linux-aarch64-7ji
