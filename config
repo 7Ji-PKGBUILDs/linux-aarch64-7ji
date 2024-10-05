@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 6.11.1 Kernel Configuration
+# Linux/arm64 6.11.2 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 14.1.1 20240507"
 CONFIG_CC_IS_GCC=y
@@ -5086,7 +5086,6 @@ CONFIG_VIDEO_MESON_GE2D=m
 #
 # Chips&Media media platform drivers
 #
-# CONFIG_VIDEO_E5010_JPEG_ENC is not set
 
 #
 # Intel media platform drivers
@@ -5124,7 +5123,6 @@ CONFIG_VIDEO_MESON_GE2D=m
 #
 # Raspberry Pi media platform drivers
 #
-# CONFIG_VIDEO_RASPBERRYPI_PISP_BE is not set
 
 #
 # Renesas media platform drivers
