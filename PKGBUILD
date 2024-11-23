@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.12'
+pkgver='6.12.1'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -25,9 +25,9 @@ source=(
   'config'
 )
 sha256sums=(
-  'b1a2562be56e42afb3f8489d4c2a7ac472ac23098f1ef1c1e40da601f54625eb'
+  '0193b1d86dd372ec891bae799f6da20deef16fc199f30080a4ea9de8cef0c619'
   "${_sha256_patch}"
-  '219cd93c3284b4818c90d9b289ece45768b136ddc2e7c41dcc627989b38e828f'
+  '3264a20698aafb82f8becd228800b6056cd71848922df7e2234eabd08b9cafc8'
 )
 
 prepare() {
