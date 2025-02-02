@@ -13,7 +13,7 @@ arch=('aarch64')
 url="https://kernel.org"
 license=('GPL2')
 makedepends=( # Since we don't build the doc, most of the makedeps for other linux packages are not needed here
-  'kmod' 'bc' 'dtc' 'uboot-tools' 'pahole'
+  'kmod' 'bc' 'dtc' 'uboot-tools' 'pahole' 'python'
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
