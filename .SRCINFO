@@ -1,5 +1,5 @@
 pkgbase = linux-aarch64-7ji
-	pkgver = 6.13.4
+	pkgver = 6.13.5
 	pkgrel = 1
 	url = https://kernel.org
 	arch = aarch64
@@ -11,12 +11,12 @@ pkgbase = linux-aarch64-7ji
 	makedepends = pahole
 	makedepends = python
 	options = !strip
-	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.13.4.tar.xz
+	source = https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.13.5.tar.xz
 	source = 0001-rebase-local-changes-to-v6.11.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461-0001-rebase-local-changes-to-v6.11.patch.xz
 	source = config
-	sha256sums = b80e0bc8efbc31e9ce5a84d1084dcccfa40e01bea8cc25afd06648b93d61339e
+	sha256sums = 283ecb0784f3fbc16dd822fb1d9642e230ec7515ed33f120e551b839f355e6e2
 	sha256sums = 44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461
-	sha256sums = 499b185dbc04f1d6ebb28935ab19c75000f66add77597ed6dd744af5a0058511
+	sha256sums = 74dd73dce0fa4bf903a06558c44b6a18fe171360fed1853c3695faaa2429bdd2
 
 pkgname = linux-aarch64-7ji
 	pkgdesc = The Linux Kernel and module - almost mainline but with 7Ji's patches, for Amlogic, Rockchip and virt
