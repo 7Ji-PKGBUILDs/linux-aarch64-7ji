@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.14.2'
+pkgver='6.14.3'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
