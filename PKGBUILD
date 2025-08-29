@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.16.3'
+pkgver='6.16.4'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -24,11 +24,9 @@ source=(
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
-sha256sums=(
-  '80439ba055c12f541abf44b8fc3c9b825a8f42fc25ce67462ec7e556c5790b85'
-  "${_sha256_patch}"
-  'fea3473ec817bcc0440ddfc0057e6e5a9189a964f2e7aaf6e6b58d4dc0cecb00'
-)
+sha256sums=('d6a5e3c71a10b533a756251387cc8bf48bbd5c76d842ba5e957d8b1c316ab622'
+            '44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461'
+            '664b8a83d825622aee1c7ef558677023c47bedd1dcaa9c9cf9f0d569832d0d31')
 
 prepare() {
   cd "${_srcname}"
