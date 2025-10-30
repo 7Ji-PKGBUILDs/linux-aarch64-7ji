@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.16.4'
+pkgver='6.17.6'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -24,9 +24,9 @@ source=(
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
-sha256sums=('d6a5e3c71a10b533a756251387cc8bf48bbd5c76d842ba5e957d8b1c316ab622'
+sha256sums=('8ecfbc6b693448abb46144a8d04d1e1631639c7661c1088425a2e5406f13c69c'
             '44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461'
-            '664b8a83d825622aee1c7ef558677023c47bedd1dcaa9c9cf9f0d569832d0d31')
+            '0bdb683bbb029b0bd7bb20c4fbef9c655e08dcdd1499d0859da20af88cf95653')
 
 prepare() {
   cd "${_srcname}"
@@ -99,7 +99,7 @@ _package() {
 _package-headers() {
   pkgdesc="Header files and scripts for building modules for linux kernel - ${_desc}"
   depends=('pahole')
-  
+
   # Mostly copied from alarm's linux-aarch64 and modified
   cd "${_srcname}"
   local _builddir="${pkgdir}/usr/lib/modules/$(<version)/build"
