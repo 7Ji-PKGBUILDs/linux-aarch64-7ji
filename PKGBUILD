@@ -17,15 +17,15 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
-_sha256_patch='44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461'
-_name_patch='0001-rebase-local-changes-to-v6.11.patch.xz'
+_sha256_patch='93ceb56f0cd3a03fd9961dba2f2dbfbf55ea28ed1371b885015ed0074dd9d4e1'
+_name_patch='0001-6.18-patchset.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
 sha256sums=('9106a4605da9e31ff17659d958782b815f9591ab308d03b0ee21aad6c7dced4b'
-            '44e5bc7e7d5a58c6e462ae53be86d80d45dcaa046e57369966d8648f39b41461'
+            "${_sha256_patch}"
             '0bdb683bbb029b0bd7bb20c4fbef9c655e08dcdd1499d0859da20af88cf95653')
 
 prepare() {
