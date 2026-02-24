@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='6.18'
+pkgver='6.19.3'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -24,7 +24,7 @@ source=(
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
-sha256sums=('9106a4605da9e31ff17659d958782b815f9591ab308d03b0ee21aad6c7dced4b'
+sha256sums=('0e474968adfcbee32916fd01a89d8ccfd1168d8d32569e76a5c664c793198ebe'
             "${_sha256_patch}"
             '0bdb683bbb029b0bd7bb20c4fbef9c655e08dcdd1499d0859da20af88cf95653')
 
