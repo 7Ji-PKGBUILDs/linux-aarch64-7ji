@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='7.0.11'
+pkgver='7.1.2'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -17,16 +17,16 @@ makedepends=( # Since we don't build the doc, most of the makedeps for other lin
 )
 options=(!strip)
 _srcname="linux-${pkgver}"
-_sha256_patch='93ceb56f0cd3a03fd9961dba2f2dbfbf55ea28ed1371b885015ed0074dd9d4e1'
-_name_patch='0001-6.18-patchset.patch.xz'
+_sha256_patch='09463d5e038f85edeedd0d3722683ed490c66f198a73921e7b236ead6779f957'
+_name_patch='0001-7.1.1-patchset.patch.xz'
 source=(
   "https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.xz"
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
-sha256sums=('e56c8356dda01136a6041c6ef832bd0ec99bd2d35dff97832aa5ec10ed014304'
+sha256sums=('37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f'
             "${_sha256_patch}"
-            'c32f425d8680fe7be4deac0a890439944cc078653c63de90a647c0b0c54bf76d')
+            'a933c1b14214926792cec5f2b0a5ad0931a2b8a1e4d3d521bbf1bfa14d21a12c')
 
 prepare() {
   cd "${_srcname}"
