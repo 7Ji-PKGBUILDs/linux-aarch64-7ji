@@ -1,5 +1,5 @@
 pkgbase = linux-aarch64-7ji
-	pkgver = 7.1.5
+	pkgver = 7.1.8
 	pkgrel = 1
 	url = https://kernel.org
 	arch = aarch64
@@ -11,10 +11,10 @@ pkgbase = linux-aarch64-7ji
 	makedepends = pahole
 	makedepends = python
 	options = !strip
-	source = https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.1.5.tar.xz
+	source = https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.1.8.tar.xz
 	source = 0001-7.1.1-patchset.patch.xz::https://github.com/7Ji-PKGBUILDs/linux-aarch64-7ji/releases/download/assets/sha256-09463d5e038f85edeedd0d3722683ed490c66f198a73921e7b236ead6779f957-0001-7.1.1-patchset.patch.xz
 	source = config
-	sha256sums = 22a0196b3cbcdf34dc27b77561f4d040585fd3447edc9ab3531a1ac79e3041e7
+	sha256sums = ff01dcb449279d5b4cfccdb01fee639cf5ff1803f1749a77844dd33915422c49
 	sha256sums = 09463d5e038f85edeedd0d3722683ed490c66f198a73921e7b236ead6779f957
 	sha256sums = 08effe90bb13e404094fb5de81f3eb933999c0c47c924c3ee6b57eb3f2d5acd0
 

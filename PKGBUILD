@@ -7,7 +7,7 @@ pkgname=(
   "${pkgbase}"
   "${pkgbase}-headers"
 )
-pkgver='7.1.5'
+pkgver='7.1.8'
 pkgrel=1
 arch=('aarch64')
 url="https://kernel.org"
@@ -24,7 +24,7 @@ source=(
   "${_name_patch}::https://github.com/7Ji-PKGBUILDs/${pkgbase}/releases/download/assets/sha256-${_sha256_patch}-${_name_patch}"
   'config'
 )
-sha256sums=('22a0196b3cbcdf34dc27b77561f4d040585fd3447edc9ab3531a1ac79e3041e7'
+sha256sums=('ff01dcb449279d5b4cfccdb01fee639cf5ff1803f1749a77844dd33915422c49'
             "${_sha256_patch}"
             '08effe90bb13e404094fb5de81f3eb933999c0c47c924c3ee6b57eb3f2d5acd0')
 
